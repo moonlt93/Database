@@ -238,8 +238,4 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
-<<<<<<< HEAD
-# End of https://www.toptal.com/developers/gitignore/api/intellij+all
-=======
 .DS_Store
->>>>>>> 0e8fd073dc18e0a785188d9c57b1b8bc1e641c37
