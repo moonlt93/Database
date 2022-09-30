@@ -1,6 +1,6 @@
 # Join
 
-> PK-FK 로 이어진 2개 이상의 테이블을 결합해 검색하는 방법
+> 2개 이상의 테이블을 결합해 검색하는 방법
 
 ## 0. 들어가기 전에
 
@@ -20,7 +20,7 @@
 
 <img src="./board-member.png" alt="board-member" width=250px>
 
-위와 같이 게시판테이블과 회원테이블을 분리 후 FK-PK 로 이어준다.
+위와 같이 게시판테이블과 회원테이블을 분리 후 join 으로 이어준다.
 
 그러면 아래의 회원테이블에서 아이디가 `ho` 인 회원의 나이를 업데이트하면,
 
@@ -41,8 +41,35 @@ Join 은 쉽게 말해 집합이라고 생각하면 되고, 크게 4가지로 �
 -   Inner Join
 -   Full (Outer) Join
 
-## Left (Outer) Join & Right (Outer) Join
+## join 쿼리문 작성 (MySQL)
 
-## Inner Join
+> join 을 이용한 데이터 조회하기
 
-## Full (Outer) Join
+```sql
+select * from [왼쪽 테이블] as left [left join / right join] [오른쪽 테이블] as right on [조건]
+```
+
+### Left (Outer) Join & Right (Outer) Join
+
+```sql
+select * from board as b LEFT JOIN member as m on b.작성자나이 = m.나이;
+select * from member as m right JOIN board as b on b.작성자나이 = m.나이;
+
+select * from board as b right JOIN member as m on b.작성자나이 = m.나이;
+select * from member as m LEFT JOIN board as b on b.작성자나이 = m.나이;
+```
+
+### Inner Join
+
+```sql
+select * from board as b inner JOIN member as m on m.나이 = b.작성자나이;
+select * from board as b inner JOIN member as m on m.나이 = b.작성자나이;
+```
+
+### Full (Outer) Join
+
+```sql
+select * from board as b left join member as m on b.작성자아이디 = m.아이디
+union
+select * from board as b right join member as m on b.작성자아이디 = m.아이디;
+```
