@@ -9,8 +9,8 @@
 Database 에서는
 
 -   `테이블`을 `Relation 관계` 이라고 한다.
--   각각의 `행`은 `Tuple 튜플` 라고 한다.
--   각각의 `열`은 `Attribute 속성` 이라고 한다.
+-   각각의 `행`은 `Tuple 튜플 / Record 레코드` 라고 한다.
+-   각각의 `열`은 `Attribute 속성 / Field 필드` 라고 한다.
 -   `행 전체` 는 `Instance 인스턴스` 라고 한다.
 -   `열 전체` 는 `Schema 스키마` 라고 한다.
 -   `하나의 열에 대한 데이터들`은 `Domain 도메인` 이라고 한다.
