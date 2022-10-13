@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+SELECT MEMBER_ID, MEMBER_NAME, GENDER, DATE_OF_BIRTH
+FROM MEMBER_PROFILE
+-- 3월인 사람 AND 성별이 W AND 번호가 null이 아닌 사람!
+WHERE MONTH(DATE_OF_BIRTH) =3
+  AND GENDER = 'W'
+  AND TLNO is not null
+-- MEMBER_ID를 기준으로 정렬
+order by MEMBER_ID;
