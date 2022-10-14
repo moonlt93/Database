@@ -1,0 +1,18 @@
+-- 그룹별 조건에 맞는 식당 목록출력하기
+
+WITH A AS (
+SELECT MEMBER_ID
+        , COUNT(1) as "cnt"
+FROM REST_REVIEW
+GROUP BY 1
+)
+SELECT B.MEMBER_NAME
+        , C.REVIEW_TEXT
+        , SUBSTRING(C.REVIEW_DATE ,1, 10)
+FROM A, MEMBER_PROFILE B, REST_REVIEW C
+ WHERE A.cnt = (SELECT MAX(A.cnt) FROM A)
+   AND A.MEMBER_ID = B.MEMBER_ID
+   AND B.MEMBER_ID = C.MEMBER_ID
+ORDER BY 1,3
+
+--with 구문을 쓸줄 잘몰라서 가져와봄.
